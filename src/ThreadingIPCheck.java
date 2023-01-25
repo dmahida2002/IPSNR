@@ -5,7 +5,6 @@ public class ThreadingIPCheck extends Thread {
 	
 	private String websiteList[] = 
 		{				
-				"https://whatismyipaddress.com/ip/",
 				"https://nordvpn.com/ip-lookup/",
 				"https://www.ipqualityscore.com/free-ip-lookup-proxy-vpn-test/lookup/"
 		};
@@ -20,11 +19,9 @@ public class ThreadingIPCheck extends Thread {
 	@Override
 	public void run() {
 		
-//		if (currentWebsite == 0) webOne();
+		if (currentWebsite == 0) webOne();
 		
 		if (currentWebsite == 1) webTwo();
-		
-		if (currentWebsite == 2) webThree();
 	}
 	
 	public int numOfChecks() {
@@ -39,32 +36,24 @@ public class ThreadingIPCheck extends Thread {
 	
 	private void webOne() {
 		
-		System.out.println("Running check at whatismyipaddress...");
-		
-		BehaviorsForWhatIP performWhatIP = new BehaviorsForWhatIP();
-		
-		performWhatIP.setup(websiteList[currentWebsite], demandedIP);
-		performWhatIP.getDetails();
-		
-		DetailedCompression.toReceiver(performWhatIP.finish());
-	}
-	
-	private void webTwo() {
-		
 		System.out.println("Running check at nordvpn...");
 		
 		BehaviorsForNordVPN performNordVPN = new BehaviorsForNordVPN();
 		
 		performNordVPN.setup(websiteList[currentWebsite]);
 		performNordVPN.enterIP(demandedIP);
-		performNordVPN.clickCheck();
-		performNordVPN.clickCheck();
+		
+		for(int i = 0; i < 10; i++) {
+			
+			performNordVPN.clickCheck();
+		}
+		
 		performNordVPN.getDetails();
 		
 		DetailedCompression.toReceiver(performNordVPN.finish());
 	}
 	
-	private void webThree() {
+	private void webTwo() {
 		
 		System.out.println("Running check at ipqualityscore...");
 		

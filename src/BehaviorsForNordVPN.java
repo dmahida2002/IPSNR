@@ -67,8 +67,6 @@ public class BehaviorsForNordVPN {
 	
 	public String[] finish() {
 		
-		driver.close();
-		
 		return details;
 	}
 }

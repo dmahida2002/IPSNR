@@ -8,7 +8,7 @@ public class DetailedCompression {
 	
 	private static String secondSet[];
 	
-	private static String[] finalIPData = new String[6];
+	private static String[] finalIPData = new String[5];
 	
 	private static Resources resources = new Resources();
 	
@@ -21,7 +21,8 @@ public class DetailedCompression {
 		
 		if(set == 0) firstSet = details;
 		if(set == 1) secondSet = details;
-		if(set == 2) analize();
+		
+		if(set == 1) analize();
 		
 		set++;
 	}
@@ -29,12 +30,7 @@ public class DetailedCompression {
 	public static void analize() {
 		
 		double scoreOne = 0;
-		double scoreTwo = 0;
-		double scoreThree = 0;
-		
-		double averageScore = 0;
-		double similarityThreshold = 0.5;
-		double highest = 0;
+		double similarityThreshold = 0.55;
 		
 		for(int i = 0; i < 4; i++) {
 			
@@ -53,25 +49,19 @@ public class DetailedCompression {
 		
 		if(firstSet.length == 5) {
 			
-			if(finalIPData[4] == null) finalIPData[4] = firstSet[4];
-			
-			else finalIPData[4] = firstSet[4];
+			finalIPData[4] = firstSet[4];
 		}
 		
 		if(secondSet.length == 5) {
 			
-			if(finalIPData[4] == null) finalIPData[4] = secondSet[4];
-			
-			else finalIPData[5] = secondSet[4];
+			finalIPData[4] = secondSet[4];
 		}
 		
-		if(!(finalIPData[5] == null)) {
+		if(!(finalIPData[4] == null)) {
 			
 			Command complete = new Command();
 			
 			complete.setIPDetails(getIPData());
-			
-			System.out.println("delivered");
 		}
 	}
 	

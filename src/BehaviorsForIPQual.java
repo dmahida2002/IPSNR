@@ -144,8 +144,6 @@ public class BehaviorsForIPQual {
 	
 	public String[] finish() {
 		
-		driver.close();
-		
 		return details;
 	}
 }

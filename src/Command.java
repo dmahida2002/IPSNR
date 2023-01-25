@@ -17,7 +17,6 @@ public class Command {
 	private String state;
 	private String innerRegion;
 	private String risk;
-	private String type;
 	
 	public Command(String IP) {
 		
@@ -61,8 +60,8 @@ public class Command {
 		
 		/* 
 		 * Fill all elements with the ThreadRipperIPCheck class.
-		 * We need this many threads because each thread will be in a state of
-		 * "start()" when we call the start method. The thread cannot be used until the process has completed.
+		 * We need this many threads because a single thread will be in a state of
+		 * "start()" when we call the start method. That thread cannot be used until the process has completed.
 		 */
 		
 		for(int i = 0; i < ripIPChecker.numOfChecks(); i++) {
@@ -84,7 +83,7 @@ public class Command {
 	
 	public boolean notFilled() {
 		
-		if (type == null) return true;
+		if (risk == null) return true;
 		
 		return false;
 	}
@@ -96,7 +95,6 @@ public class Command {
 		this.state = details[2];
 		this.innerRegion = details[3];
 		this.risk = details[4];
-		this.type = details[5];
 	}
 	
 	public String getIPDetails() {
@@ -107,7 +105,6 @@ public class Command {
 		details += "\nState: " + state;
 		details += "\nCity: " + innerRegion;
 		details += "\nRisk: " + risk;
-		details += "\nType: " + type;
 		
 		return details;
 	}
