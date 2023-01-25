@@ -12,10 +12,21 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public class Command {
 	
 	private String IP;
+	private String ISP;
+	private String country;
+	private String state;
+	private String innerRegion;
+	private String risk;
+	private String type;
 	
 	public Command(String IP) {
 		
 		this.IP = IP;
+	}
+	
+	public Command() {
+		
+		// Empty constructor
 	}
 	
 	public void stress (String IP) {
@@ -69,6 +80,35 @@ public class Command {
 			
 			((Thread) threadHolder[i]).start();
 		}
+	}
+	
+	public boolean notFilled() {
 		
+		if (type == null) return true;
+		
+		return false;
+	}
+	
+	public void setIPDetails(String[] details) {
+		
+		this.ISP = details[0];
+		this.country = details[1];
+		this.state = details[2];
+		this.innerRegion = details[3];
+		this.risk = details[4];
+		this.type = details[5];
+	}
+	
+	public String getIPDetails() {
+		
+		String details = "ISP: " + ISP;
+		
+		details += "\nCountry: " + country;
+		details += "\nState: " + state;
+		details += "\nCity: " + innerRegion;
+		details += "\nRisk: " + risk;
+		details += "\nType: " + type;
+		
+		return details;
 	}
 }

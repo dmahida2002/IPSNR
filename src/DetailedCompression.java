@@ -24,16 +24,7 @@ public class DetailedCompression {
 		if(set == 0) firstSet = details;
 		if(set == 1) secondSet = details;
 		if(set == 2) thirdSet = details;
-		
-		System.out.println(set);
-		System.out.println(Arrays.toString(firstSet));
-		System.out.println(Arrays.toString(secondSet));
-		System.out.println(Arrays.toString(thirdSet));
-		
-		if(set == 2) {
-			
-			analize();
-		}
+		if(set == 2) analize();
 		
 		set++;
 	}
@@ -69,6 +60,11 @@ public class DetailedCompression {
 					
 					finalIPData[i] = firstSet[i];
 				}
+				
+				else {
+					
+					finalIPData[i] = secondSet[i];
+				}
 			}
 			
 			else {
@@ -79,43 +75,37 @@ public class DetailedCompression {
 		
 		if(firstSet.length == 5) {
 			
-			if(finalIPData[3] == null) finalIPData[4] = firstSet[3];
+			if(finalIPData[4] == null) finalIPData[4] = firstSet[4];
 			
-			else finalIPData[5] = firstSet[4];
+			else finalIPData[4] = firstSet[4];
 		}
 		
 		if(secondSet.length == 5) {
 			
-			if(finalIPData[3] == null) finalIPData[4] = secondSet[3];
+			if(finalIPData[4] == null) finalIPData[4] = secondSet[4];
 			
 			else finalIPData[5] = secondSet[4];
 		}
 		
 		if(thirdSet.length == 5) {
 			
-			if(finalIPData[3] == null) finalIPData[4] = thirdSet[3];
+			if(finalIPData[4] == null) finalIPData[4] = thirdSet[4];
 			
 			else finalIPData[5] = thirdSet[4];
 		}
 		
-		for(int i = 0; i < finalIPData.length; i++) {
-			
-			if(finalIPData[4] == null) {
-				
-				continue;
-			}
-			
-			else {
-				
-				System.out.println(getIPData());
-			}
-		}
 		
-		System.out.println(getIPData());
+		
+		if(!(finalIPData[5] == null)) {
+			
+			Command complete = new Command();
+			
+			complete.setIPDetails(getIPData());
+		}
 	}
 	
-	public static String getIPData() {
+	public static String[] getIPData() {
 		
-		return Arrays.toString(finalIPData);
+		return finalIPData;
 	}
 }

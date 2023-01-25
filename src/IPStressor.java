@@ -14,5 +14,16 @@ public class IPStressor {
 		Command askTo = new Command(IP);
 		
 		askTo.checkIP();
+		
+		boolean verify = askTo.notFilled();
+		
+		while(verify) {
+			
+			verify = askTo.notFilled();
+			
+			System.out.println(verify);
+		}
+		
+		System.out.println("\n" + askTo.getIPDetails());
     }
 }
