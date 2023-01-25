@@ -20,7 +20,7 @@ public class ThreadingIPCheck extends Thread {
 	@Override
 	public void run() {
 		
-		if (currentWebsite == 0) webOne();
+//		if (currentWebsite == 0) webOne();
 		
 		if (currentWebsite == 1) webTwo();
 		
