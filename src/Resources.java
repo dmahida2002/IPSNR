@@ -54,6 +54,8 @@ public class Resources {
 		return country.substring(0, firstCommaIndex);
 	}
 	
+	// Jaccard Similarity
+	
 	public double similarity(String with, String to) {
         
         Set<Character> set1 = new HashSet<>();
