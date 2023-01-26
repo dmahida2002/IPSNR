@@ -25,7 +25,7 @@ To run this program, you will need to have the following installed on your machi
 * Clone the project to your local machine using the following command:
 
 ```bash
-  git clone https://github.com/<your-username>/IPChecker.git
+  git clone https://github.com/<dmahida2002>/IPChecker.git
 ```
 
 * Navigate to the project's root directory:
@@ -43,7 +43,7 @@ To run this program, you will need to have the following installed on your machi
 * Run the program:
 
 ```bash
-  java -jar target/IPChecker-1.0-SNAPSHOT.jar <IP_ADDRESS>
+  java -jar target/IPChecker-1.0-SNAPSHOT.jar
 ```
 
 ### Features
