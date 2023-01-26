@@ -12,6 +12,8 @@ import com.google.gson.JsonParser;
 * getFullCountryName method is used to convert the country code to its full name by sending a request to a REST API. 
 * nordContAbr method is used to extract the abbreviation of the country name from the output of NordVPN website.
 * similarity method is used to calculate the Jaccard similarity between two given strings.
+* @author Deeshan M
+* @version 1.0
 */
 
 public class Resources {

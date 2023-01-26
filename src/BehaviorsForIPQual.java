@@ -16,6 +16,10 @@ import com.google.gson.JsonParser;
 import java.io.InputStreamReader;
 import java.net.URL;
 
+/**
+ * Enum representing the states in the United States in a abbreviated form.
+*/
+
 enum State {
 	
     AL, AK, AZ, AR, 
@@ -38,19 +42,61 @@ enum State {
     WA, WV, WI, WY
 }
 
+/**
+* This class represents the behavior of the application when it is used to gather information 
+* about an IP address. It uses Selenium's WebDriver to navigate to a website that provides 
+* information about an IP address and extracts the necessary information. It also utilizes 
+* an EnumMap to map state abbreviations to their full names.
+*
+* @author Deeshan M
+* @version 1.0
+*/
+
 public class BehaviorsForIPQual {
+	
+	/**
+	 * This variable is an EnumMap that holds the state abbreviation as the key and the full state name as the value.
+	 * The EnumMap is parameterized with the Enum class 'State' as the key and 'String' as the value.
+	 * The EnumMap is instantiated using the Enum class 'State' as the argument for the constructor.
+	 * This map will be used to map the state abbreviation from the web page to the full state name.
+	*/
 	
 	private EnumMap<State, String> stateAbbreviations = new EnumMap<>(State.class);
 	
+	/**
+	* Declare a WebDriver object for interacting with the website
+	*/
+	
 	private WebDriver driver;
+	
+	/**
+	* Declare a Resources object for accessing the Resources class
+	*/
 	
 	private Resources resources = new Resources();
 	
+	/**
+	* Declare a ChromeOptions object for setting options for the ChromeDriver
+	*/
+	  
 	private ChromeOptions options = new ChromeOptions();
+	
+	/**
+	 * The ISPXPath variable is a String that contains the XPath expression used to locate a specific element on the web page.
+	 */
 	
 	private String ISPXPath = "/html/body/section[1]/div[2]/div/div[4]/div[1]/div[1]/table/tbody/tr[11]/td[2]";
 	
-	private String details[] = new String[5];
+	/**
+	* Declare an array of strings to hold the details of the IP
+	*/
+	
+	private String details[] = new String[4];
+	
+	/**
+	* This method sets up the WebDriver and navigates to the specified website.
+	* @param website the website to navigate to
+	*/
 	
 	public void setup(String website, String IP) {
 		
@@ -72,6 +118,12 @@ public class BehaviorsForIPQual {
 		
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(ISPXPath)));
 	}
+	
+	/**
+	 * This method maps the state abbreviations to their full names by adding them to the stateAbbreviations EnumMap.
+	 * The EnumMap is initialized using the State enumeration as the key type.
+	 * The put() method is used to add each state abbreviation as the key and its corresponding full name as the value.
+	*/
 	
 	private void stateAbbreviations() {
 		
@@ -127,6 +179,12 @@ public class BehaviorsForIPQual {
         stateAbbreviations.put(State.WI, "Wisconsin");
         stateAbbreviations.put(State.WY, "Wyoming");
 	}
+	
+	/**
+	 * This method is used to extract the details such as ISP, country, 
+	 * state and inner region from the website after the 'Check' button is clicked.
+	 * The extracted details are stored in an array named 'details'.
+	*/
 
 	public void getDetails() {
 		
@@ -141,6 +199,12 @@ public class BehaviorsForIPQual {
 		details[3] = driver.findElement(By.xpath(innerRegionXPath)).getText();
 		details[4] = driver.findElement(By.xpath(scoreXPath)).getText();
 	}
+	
+	/**
+	 * This method returns the array 'details' which contains the details of the IP address that was searched for.
+	 * The details include the ISP, country, state and inner region of the IP address.
+	 * @return the array populated with the IP details.
+	 */
 	
 	public String[] finish() {
 		

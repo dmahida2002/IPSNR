@@ -22,6 +22,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
  * The setIPDetails method is used to set the values of the private variables with the details of the IP address.
  * The getIPDetails method is used to retrieve the details of the IP address in the form of a String.
  * The getters are used to get the values of the private variables.
+ * @author Deeshan M
+ * @version 1.0
 */
 
 public class Command {
