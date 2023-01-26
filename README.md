@@ -1,5 +1,11 @@
 
-# IPSNR
+<div align="center">
+  <br>
+  <img src="https://i.imgur.com/j3v2k8R.png" alt="banner" width="100%">
+  <br>
+</div>
+
+---
 
 IP Checker is a Java program that allows you to check an IP address against various websites to get detailed information about the IP address. 
 The program uses multi-threading to concurrently check the IP address on multiple websites, and utilizes Selenium's WebDriver to navigate and extract information from the websites. 
