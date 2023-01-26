@@ -2,7 +2,7 @@
 # IPSNR
 
 IP Checker is a Java program that allows you to check an IP address against various websites to get detailed information about the IP address. 
-The program uses threading to concurrently check the IP address on multiple websites, and utilizes Selenium's WebDriver to navigate and extract information from the websites. 
+The program uses multi-threading to concurrently check the IP address on multiple websites, and utilizes Selenium's WebDriver to navigate and extract information from the websites. 
 The program also uses an EnumMap to map state abbreviations to their full names, and a REST API to convert country codes to their full names.
 
 
