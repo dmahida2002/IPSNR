@@ -11,9 +11,9 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 /**
  * The Command class is the main class that contains the main methods that are used to check an IP 
- * address and retrieve the details of the IP address.It contains a private 
+ * address, stress test the IP address and retrieve the details of the IP address.It contains a private 
  * static variables IP, ISP, country, state, innerRegion, risk which holds the details of the IP address.
- * It also contains constructors, checkIP method, setIPDetails method, getIPDetails 
+ * It also contains constructors, stress method, checkIP method, setIPDetails method, getIPDetails 
  * method, and getters for the private variables.
  * The checkIP method is used to check the IP address by instantiating an 
  * object of the ThreadingIPCheck class and creating multiple threads using the Thread class.
@@ -50,6 +50,20 @@ public class Command {
 	public Command() {
 		
 		// Empty constructor
+	}
+	
+	public void stress () {
+
+		for(int i = 0; i < 1; i++) {
+
+			ThreadingStressthem ripStressthem = new ThreadingStressthem(IP);
+
+			ripStressthem.start();
+
+			ThreadingHardStresser ripHardStresser = new ThreadingHardStresser(IP);
+
+			ripHardStresser.start();
+		}
 	}
 	
 	/**

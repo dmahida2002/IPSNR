@@ -91,7 +91,7 @@ public class BehaviorsForIPQual {
 	* Declare an array of strings to hold the details of the IP
 	*/
 	
-	private String details[] = new String[4];
+	private String details[] = new String[5];
 	
 	/**
 	* This method sets up the WebDriver and navigates to the specified website.
@@ -159,7 +159,6 @@ public class BehaviorsForIPQual {
         stateAbbreviations.put(State.NJ, "New Jersey");
         stateAbbreviations.put(State.NM, "New Mexico");
         stateAbbreviations.put(State.NY, "New York");
-        stateAbbreviations.put(State.NY, "New York");
         stateAbbreviations.put(State.NC, "North Carolina");
         stateAbbreviations.put(State.ND, "North Dakota");
         stateAbbreviations.put(State.OH, "Ohio");
@@ -195,7 +194,14 @@ public class BehaviorsForIPQual {
 		
 		details[0] = driver.findElement(By.xpath(ISPXPath)).getText();
 		details[1] = resources.getFullCountryName(driver.findElement(By.xpath(countryXPath)).getText());
-		details[2] = stateAbbreviations.get(State.valueOf(driver.findElement(By.xpath(stateXPath)).getText()));
+		
+		if(driver.findElement(By.xpath(stateXPath)).getText().length() == 2) {
+			
+			details[2] = stateAbbreviations.get(State.valueOf(driver.findElement(By.xpath(stateXPath)).getText()));
+		}
+		
+		else details[2] = driver.findElement(By.xpath(stateXPath)).getText();
+		
 		details[3] = driver.findElement(By.xpath(innerRegionXPath)).getText();
 		details[4] = driver.findElement(By.xpath(scoreXPath)).getText();
 	}
@@ -211,3 +217,5 @@ public class BehaviorsForIPQual {
 		return details;
 	}
 }
+
+

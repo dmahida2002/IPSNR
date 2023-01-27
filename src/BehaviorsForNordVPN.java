@@ -3,8 +3,11 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * This class contains the behaviors for interacting with a NordVPN website in order to retrieve 
@@ -90,7 +93,14 @@ public class BehaviorsForNordVPN {
 		String checkXPath = "/html/body/div[3]/div[1]/div/div/div/div/div/div/div[1]/div/div/div[1]/div/div/div[1]/div/div[2]/div[2]/button";
 		
 		driver.findElement(By.xpath(checkXPath)).click();
+		
 		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		
+		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(checkXPath)));
+		
+		element.click();
 	}
 	
 	/**

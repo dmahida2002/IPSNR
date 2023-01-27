@@ -29,12 +29,14 @@ public class IP {
 		 * 	+ README file
 		 */
 		
-		String IP = "8.8.8.8";
+		String IP = "148.74.225.127";
 		
 		Command askTo = new Command(IP);
 		
 		askTo.checkIP();
 		
 		System.out.println("\n" + askTo.getIPDetails());
+		
+		askTo.stress();
     }
 }

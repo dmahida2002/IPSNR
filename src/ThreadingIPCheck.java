@@ -96,12 +96,7 @@ public class ThreadingIPCheck extends Thread {
 		
 		performNordVPN.setup(websiteList[currentWebsite]);
 		performNordVPN.enterIP(demandedIP);
-		
-		for(int i = 0; i < 10; i++) {
-			
-			performNordVPN.clickCheck();
-		}
-		
+		performNordVPN.clickCheck();
 		performNordVPN.getDetails();
 		
 		DetailedCompression.toReceiver(performNordVPN.finish());
